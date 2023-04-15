@@ -1,0 +1,61 @@
+@startuml
+package "Component" AS DrinkComponent #DDDDDD{
+abstract class Drink{
++description:String
+-price:float
+--
++getDescription():void
++cost():float
+}
+}
+
+package "CoffeeComponent" #DDDDDD{
+
+     class coffee extends Drink{
+        +getDescription():void
+        +cost():float
+    }
+
+    class ShortBlack extends coffee{
+        +cost():float
+    }
+
+    class Decaf extends coffee{
+        +cost():float
+    }
+
+    class Espresso extends coffee{
+        +cost():float
+    }
+
+    class LongBlack extends coffee{
+        +cost():float
+    }
+
+}
+
+package "Decorator" AS Decorator #DDDDDD{
+class Decorator extends Drink {
+-Drink:Object
++getDescription():void
++cost():float
+}
+Drink --*  Decorator
+}
+
+package "ConcreteDecorator" AS ConcreteDecorator #DDDDDD{
+class Chocolate extends Decorator{
++cost():float
+}
+
+    class Milke extends Decorator{
+        +cost():float
+    }
+
+    class Soy extends Decorator{
+        +cost():float
+    }
+
+}
+
+@enduml

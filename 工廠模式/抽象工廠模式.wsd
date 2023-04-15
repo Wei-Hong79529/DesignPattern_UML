@@ -1,0 +1,48 @@
+@startuml
+package "pizzaStore" AS pizzaStore #DDDDDD{
+abstract class pizza {
+-pizzaName:String
++prepare():void
++bake():void
++cut():void
++box():void
+
+}
+
+     class BJcheessPizza extends pizza {
+    }
+
+    class BJpaperPizza extends pizza {
+
+    }
+
+    class LDcheessPizza extends pizza {
+    }
+
+    class LDpaperPizza extends pizza {
+
+    }
+
+
+    interface AbsFactroy{
+    +createPizza():Pizza(abstract)
+    }
+
+    class orderPizza{
+        -absFactroy:AbsFactroy
+    }
+
+    class BJFactory implements AbsFactroy{}
+
+    class LDFactory implements AbsFactroy{}
+
+    AbsFactroy --o orderPizza
+
+    BJFactory --> BJcheessPizza
+    BJFactory --> BJpaperPizza
+
+    LDFactory --> LDcheessPizza
+    LDFactory --> LDpaperPizza
+
+}
+@enduml

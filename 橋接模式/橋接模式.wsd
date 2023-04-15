@@ -1,0 +1,28 @@
+@startuml
+package "Bridge" #DDDDDD{
+
+    interface Brand{
+        +call():void
+    }
+
+    class Apple implements Brand{}
+
+    class Samsunge  implements Brand{}
+
+    class Pixel  implements Brand{}
+
+    class Client{}
+
+    class Phone{
+        -brand:Brand
+    }
+
+    class FoldedPhone extends Phone{}
+    class UpRightPhone extends Phone{}
+
+    Client -->Brand
+    Client -->Phone
+    Phone o-- Brand
+
+}
+@enduml

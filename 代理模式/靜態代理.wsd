@@ -1,0 +1,29 @@
+@startuml
+package "staticProxy" AS staticProxy #DDDDDD{
+interface ITeacherDao{
++teach():void
+}
+class TeachDao implements ITeacherDao{
++teach():void
+}
+class TeacherDAOProxy implements ITeacherDao{
+-ITeacherDao:ITeacherDao
++teach():void
+}
+class client {}
+
+    note top of client
+
+<size:14>Client</size>
+<i>1.創建 TeacherDaoProxy 代理對象</i>
+<i>2.創建 TeacherDao 對象</i>
+<i>3.將 TeacherDao 對象，交個 TeacherDaoProxy 對象 執行方法</i>
+
+end note
+
+    client --> TeacherDAOProxy
+    client --> TeachDao
+    TeacherDAOProxy o-- TeachDao
+
+}
+@enduml

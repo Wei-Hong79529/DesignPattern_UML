@@ -1,0 +1,30 @@
+@startuml
+package "dynamicProxy" AS dynamicProxy #DDDDDD{
+interface ITeacherDao{
++teach():void
+}
+class TeachDao implements ITeacherDao{
++teach():void
+}
+
+class ProxyFactory {
+-target:Object
++ProxyFactory()
++getProxyInstance():object
+}
+
+class client {}
+
+note left of ProxyFactory::getProxyInstance
+<size:14>getProxyInstance()</size>
+<i>1.根據傳入的對象(teacherDao),目標對象</i>
+<i>2.利用返回機制，返回一個代理對象</i>
+<i>3.然後通過代理對象，調用目標對象方法</i>
+
+end note
+
+    client --> ProxyFactory
+    client --> TeachDao
+
+}
+@enduml

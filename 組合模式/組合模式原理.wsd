@@ -1,0 +1,30 @@
+@startuml
+package "Composite" #DDDDDD{
+
+    class Client{}
+
+    abstract class Component{
+        +opration():void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+
+    class Leaf extends Component{
+        +opration():void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+
+    class Composite  extends Component{
+        -Component:object
+        +opration():void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+    Client --> Component
+    Component --o Composite
+}
+@enduml

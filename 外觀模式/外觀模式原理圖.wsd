@@ -1,0 +1,20 @@
+@startuml
+package "Facade" #DDDDDD{
+
+    class Client{}
+
+    abstract class 外觀類{
+    }
+
+    class 子系統1{}
+    class 子系統2{}
+    class 子系統3{}
+
+    
+    子系統1 --o 外觀類
+    子系統2 --o 外觀類
+    子系統3 --o 外觀類
+    
+    外觀類  <-- Client
+}
+@enduml

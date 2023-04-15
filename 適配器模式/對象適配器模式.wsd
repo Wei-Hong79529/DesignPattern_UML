@@ -1,0 +1,31 @@
+@startuml
+package "對象 Adapter" AS classAdapter #DDDDDD{
+class client{}
+
+class voltage220V{
++output220V():void
+}
+
+    class voltageAdapter implements voltage5V{
+        -voltage220V:Voltage220V
+        +voltageAdapter(Voltage220V):void
+        +output5V():void
+    }
+
+    interface voltage5V {
+    +output5V():void
+    }
+
+     class phone  {
+        +charging():void
+    }
+
+
+    voltage220V --o voltageAdapter
+    phone --> voltage5V
+    client --> phone
+    client --> voltageAdapter
+    client --> voltage220V
+
+}
+@enduml

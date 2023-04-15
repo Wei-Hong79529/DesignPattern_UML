@@ -1,0 +1,31 @@
+@startuml
+package "Flyweight" #DDDDDD{
+
+    class Client{}
+
+    abstract class WebSite{
+        +use():void
+    }
+
+     class WebSiteFactory{
+        +getWebSiteCategory():void
+     }
+
+    class ConcreteWebSite extends WebSite{
+        +use():void
+    }
+    class User {}
+   
+
+    
+    Client --> WebSite
+    Client --> WebSiteFactory
+    Client --> User
+    FlyweightFactory  o-->  WebSite
+    ConcreteWebSite -->User
+
+    note top of User
+    User 指的是享元模式，外部狀態:誰去使用網站
+    end note
+}
+@enduml

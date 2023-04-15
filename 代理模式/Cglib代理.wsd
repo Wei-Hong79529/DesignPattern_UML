@@ -1,0 +1,26 @@
+@startuml
+package "cglibProxy" AS cglibProxy #DDDDDD{
+interface MethodInterceptor{
+inteceptor():void
+}
+class TeachDao {
++teach():void
+}
+class ProxyFactory implements MethodInterceptor{
+-target:Object(案例指的是 TeachDao)
++proxyFactory():void
++getProxyInstance():Object
++interceptor():void
+}
+class client {}
+
+note top of ProxyFactory
+<i>1.getInstance()給目標對象(target)創建一個代理對象</i>
+<i>2.重寫 inteceptor 方法，實現被代理的對象(目標對象(target))方法調用</i>
+end note
+
+    client --> ProxyFactory
+    client --> TeachDao
+
+}
+@enduml

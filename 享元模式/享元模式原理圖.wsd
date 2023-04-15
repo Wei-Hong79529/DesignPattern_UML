@@ -1,0 +1,25 @@
+@startuml
+package "Flyweight" #DDDDDD{
+
+    class Client{}
+
+    abstract class Flyweight{
+        +operation():void
+    }
+
+     class FlyweightFactory{
+        +GetFlyweight('key'):void
+     }
+
+    class ConcreteFlyweight extends Flyweight{}
+    class UnshareConcreteFlyweight extends Flyweight{}
+   
+
+    
+     Client --> ConcreteFlyweight
+     Client --> UnshareConcreteFlyweight
+     Client --> FlyweightFactory
+    
+    FlyweightFactory  o--> "+flyweights" Flyweight
+}
+@enduml

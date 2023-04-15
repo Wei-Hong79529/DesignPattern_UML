@@ -1,0 +1,28 @@
+@startuml
+package "dispatchServlet 分析" #DDDDDD{
+
+    interface Controller{}
+
+    class DispatchServlet{
+        +doDispatch():void
+    }
+
+    class HttpController implements Controller{}
+    class SimpleController implements Controller{}
+    class AnnotationController implements Controller{}
+
+    interface HandlerAdapter{}
+
+    class SimpleHandlerAdapter implements HandlerAdapter{}
+    class HttpHandlerAdapter implements HandlerAdapter{}
+    class AnnotationHandlerAdapter implements HandlerAdapter{}
+
+    DispatchServlet --> Controller
+    HandlerAdapter  --o DispatchServlet
+
+    HttpHandlerAdapter --> HttpController
+    SimpleHandlerAdapter --> SimpleController
+    AnnotationHandlerAdapter --> AnnotationController
+
+}
+@enduml

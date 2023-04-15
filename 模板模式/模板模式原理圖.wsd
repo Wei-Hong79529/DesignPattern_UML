@@ -1,0 +1,37 @@
+@startuml
+package "Template" #DDDDDD{
+
+    class Client{}
+
+    abstract class AbstractClass{
+        +template():void
+        +operation2():void
+        +operation3():void
+        +operation4():void
+    }
+
+     class ConcreteClass extends AbstractClass{
+        +operation2():void
+        +operation3():void
+        +operation4():void
+     }
+
+    note Top of AbstractClass
+    <b>Template 模板方法
+    <i>1.規定算法大致的流程/步驟</i>
+    template(){
+        operation2()
+        operation3()
+        operation4()
+    }
+    <i>2.operation2、3、4 可以是抽象方法也可以是實現方法</i>
+    <i>3.如果是抽象方法就放到子類去實現</i>
+    end note
+
+    class ConcreteClassB extends AbstractClass{}
+    
+     Client --> ConcreteClass
+     Client --> ConcreteClassB
+     
+}
+@enduml

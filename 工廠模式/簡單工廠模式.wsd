@@ -1,0 +1,35 @@
+@startuml
+package "pizzaStore" AS pizzaStore #DDDDDD{
+abstract class pizza {
+-pizzaName:String
++prepare():void
++bake():void
++cut():void
++box():void
+}
+
+    class cheessPizza extends pizza {
+    }
+
+    class greekPizza extends pizza {
+
+    }
+
+    class SimpleFactory{
+        -pizzaType:String
+
+    }
+
+    class orderPizza{
+        +simpleFactory:SimpleFactory
+        +setFactory():void
+    }
+
+    class pizzaStore{
+        +orderPizza:orderPizza
+    }
+    SimpleFactory --o orderPizza
+    orderPizza --o pizzaStore
+
+}
+@enduml

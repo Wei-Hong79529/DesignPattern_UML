@@ -1,0 +1,40 @@
+@startuml
+package "pizzaStore" AS pizzaStore #DDDDDD{
+abstract class pizza {
+-pizzaName:String
++prepare():void
++bake():void
++cut():void
++box():void
+}
+
+    class orderPizza{
+        +createPizza():void(abstract)
+    }
+
+    class BJOrderPizza extends orderPizza{}
+
+    class LDOrderPizza extends orderPizza{}
+
+     class BJcheessPizza extends pizza {
+    }
+
+    class BJpaperPizza extends pizza {
+
+    }
+
+    class LDcheessPizza extends pizza {
+    }
+
+    class LDpaperPizza extends pizza {
+
+    }
+
+    BJOrderPizza <-- BJcheessPizza
+    BJOrderPizza <-- BJpaperPizza
+
+    LDOrderPizza <-- LDcheessPizza
+    LDOrderPizza <-- LDpaperPizza
+
+}
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+package "prototype" AS prototype #DDDDDD{
+interface Cloneable {
++clone():object
+}
+
+     class Sheep implements Cloneable {
+        -name:String
+        -age:int
+        -color:string
+        #clone():object
+    }
+
+    note left of  Sheep::clone
+    <i>使用默認的clone方法完成</i>
+    end note
+
+}
+@enduml

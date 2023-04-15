@@ -1,0 +1,30 @@
+@startuml
+package "SoyMillkTemplate" #DDDDDD{
+
+    class Client{}
+
+    abstract class SoyMillk{
+        +make():void
+        +select():void
+        +add():void 
+        +soak():void
+        +beat():void
+    }
+
+     class BlackBeanSoyMillk extends SoyMillk{
+        +add():void 
+     }
+
+     class PennuutSoyMillk extends SoyMillk{
+        +add():void 
+     }
+    note Top of SoyMillk
+     <i>add():添加配料為抽象方法，因為不同的豆漿，配料不一樣</i>
+    end note
+
+    
+     Client --> SoyMillk
+     Client --> BlackBeanSoyMillk
+     
+}
+@enduml

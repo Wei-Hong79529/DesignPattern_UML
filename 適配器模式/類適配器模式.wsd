@@ -1,0 +1,27 @@
+@startuml
+package "classAdapter" AS classAdapter #DDDDDD{
+class voltage220V{
++output220V():void
+}
+
+    class voltageAdapter extends voltage220V implements voltage5V{
+        +output220V():void
+        +output5V():void
+    }
+
+    interface voltage5V {
+    +output5V():void
+    }
+
+     class phone  {
+        +charging():void
+    }
+
+    class client{}
+
+    phone --> voltage5V
+    client --> phone
+    client --> voltageAdapter
+
+}
+@enduml

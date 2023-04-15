@@ -1,0 +1,39 @@
+@startuml
+package "Composite" #DDDDDD{
+
+    class Client{}
+
+    abstract class OrganizationComponet{
+        +opration():void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+
+    class University extends OrganizationComponet{
+        -College:College
+        +opration():void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+
+    class College  extends OrganizationComponet{
+        -Department:Department
+        +opration():void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+    class Department  extends OrganizationComponet{
+        +opration():7void
+        +add():void
+        +remove():void
+        +getChild():int
+    }
+
+    Client --> OrganizationComponet
+    College --o University
+    Department --o College
+}
+@enduml
